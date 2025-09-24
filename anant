@@ -1,0 +1,64 @@
+# ANANT KATHA - Endless Stories
+
+ANANT KATHA is a web application that uses generative AI to create short, moral stories inspired by Hindu mythology. Users can select a core moral value and an inspirational deity or character, and the application will generate a unique story tailored to their choices.
+
+This project is built with Next.js, TypeScript, and Tailwind CSS, and it leverages Google's Generative AI through Genkit for story generation.
+
+## Features
+
+- **Story Generation**: Dynamically generates stories based on user-selected moral values and characters.
+- **Multilingual Support**: Available in both English and Hindi.
+- **Interactive Quiz**: Includes a comprehension quiz after each story to reinforce the moral.
+- **Text-to-Speech**: Allows users to listen to the generated story.
+- **Responsive Design**: A clean, modern, and fully responsive user interface built with shadcn/ui.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (with App Router)
+- **AI**: [Firebase Genkit](https://firebase.google.com/docs/genkit) with Google's Gemini models
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- Node.js (v20 or later)
+- npm, yarn, or pnpm
+
+### Installation
+
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/your-username/anant-katha.git
+    ```
+2.  Install NPM packages
+    ```sh
+    npm install
+    ```
+3.  Set up your environment variables by creating a `.env.local` file. You will need a `GEMINI_API_KEY` from Google AI Studio.
+    ```env
+    GEMINI_API_KEY=YOUR_API_KEY
+    ```
+4.  Run the development server
+    ```sh
+    npm run dev
+    ```
+
+The application will be available at `http://localhost:9002`.
+
+## Project Structure
+
+-   `src/app/`: Contains the main pages and layout of the application.
+-   `src/ai/`: Holds the Genkit AI flows, including the core story generation logic.
+-   `src/components/`: Contains all the reusable React components.
+-   `src/components/ui/`: Contains the shadcn/ui components.
+-   `src/lib/`: Utility functions.
+-   `public/`: Static assets.
+
+## How It Works
+
+The core of the application is the `generateMoralStoryFlow` located in `src/ai/flows/generate-moral-story.ts`. This Genkit flow takes a moral value, a character, and a language as input. It then uses a structured prompt to instruct the Gemini model to generate a title, a story, and a moral, which are then displayed to the user.
